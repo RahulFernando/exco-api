@@ -8,7 +8,7 @@ using exco_api.Models;
 namespace exco_api.Migrations
 {
     [DbContext(typeof(ExcoDbContext))]
-    [Migration("20220429154552_Init")]
+    [Migration("20220429160301_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,37 @@ namespace exco_api.Migrations
                             id = 2,
                             img = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg",
                             name = "The Lord of the Rings by J.R.R. Tolkien"
+                        });
+                });
+
+            modelBuilder.Entity("exco_api.Models.Reference", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("img")
+                        .HasColumnType("text");
+
+                    b.Property<string>("name")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("References");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            img = "https://i.pinimg.com/originals/a7/41/83/a741836e774ae812b4fd45f9bcc14dbe.png",
+                            name = "Publication Manual of the American Psychological Association"
+                        },
+                        new
+                        {
+                            id = 2,
+                            img = "https://images-na.ssl-images-amazon.com/images/I/71pAQQsWJFL.jpg",
+                            name = "The Secrets of Character"
                         });
                 });
 #pragma warning restore 612, 618
