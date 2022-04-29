@@ -46,6 +46,37 @@ namespace exco_api.Migrations
                             name = "The Lord of the Rings by J.R.R. Tolkien"
                         });
                 });
+
+            modelBuilder.Entity("exco_api.Models.Reference", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("img")
+                        .HasColumnType("text");
+
+                    b.Property<string>("name")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("References");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            img = "https://i.pinimg.com/originals/a7/41/83/a741836e774ae812b4fd45f9bcc14dbe.png",
+                            name = "Publication Manual of the American Psychological Association"
+                        },
+                        new
+                        {
+                            id = 2,
+                            img = "https://images-na.ssl-images-amazon.com/images/I/71pAQQsWJFL.jpg",
+                            name = "The Secrets of Character"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }
