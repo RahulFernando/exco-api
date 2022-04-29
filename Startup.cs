@@ -57,7 +57,7 @@ namespace exco_api
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "/api/v1/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
