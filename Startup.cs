@@ -37,6 +37,7 @@ namespace exco_api
             services.AddTransient<ILendingService, LendingServiceImpl>();
             services.AddTransient<IReferenceService, ReferenceServiceImpl>();
             services.AddTransient<IUserService, UserServiceImpl>();
+            services.AddTransient<ICartService, CartServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
