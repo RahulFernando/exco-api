@@ -8,7 +8,7 @@ using exco_api.Models;
 namespace exco_api.Migrations
 {
     [DbContext(typeof(ExcoDbContext))]
-    [Migration("20220429160301_Init")]
+    [Migration("20220430113930_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,47 @@ namespace exco_api.Migrations
                             id = 2,
                             img = "https://images-na.ssl-images-amazon.com/images/I/71pAQQsWJFL.jpg",
                             name = "The Secrets of Character"
+                        });
+                });
+
+            modelBuilder.Entity("exco_api.Models.User", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("password")
+                        .HasColumnType("text");
+
+                    b.Property<string>("user_name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("user_type")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            email = "urbanrunes@gmail.com",
+                            password = "$2a$10$AvnYqhBMLzlQlvdAF/SB3u/sRnv12vkUwbJCc/xM0zY.34QPJKlmK",
+                            user_name = "Mason",
+                            user_type = 0
+                        },
+                        new
+                        {
+                            id = 2,
+                            email = "urbanrunes@gmail.com",
+                            password = "$2a$10$9QtT54SirItxnsRlb9q6HeNYKQSqdJ6AGBlmAdkTbZzS/EX1m2dBK",
+                            user_name = "Loki",
+                            user_type = 0
                         });
                 });
 #pragma warning restore 612, 618
