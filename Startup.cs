@@ -36,6 +36,7 @@ namespace exco_api
 
             services.AddTransient<ILendingService, LendingServiceImpl>();
             services.AddTransient<IReferenceService, ReferenceServiceImpl>();
+            services.AddTransient<IUserService, UserServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +47,11 @@ namespace exco_api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
+            // app.UseHttpsRedirection();
 
             app.UseCors(AllowedOrigin);
+            
+            app.UseRouting();
 
             app.UseAuthorization();
 

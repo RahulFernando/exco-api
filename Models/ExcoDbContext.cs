@@ -11,6 +11,7 @@ namespace exco_api.Models
 
         public DbSet<Lending> Lendings { get; set; }
         public DbSet<Reference> References { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
@@ -42,6 +43,23 @@ namespace exco_api.Models
                     id = 2,
                     name = "The Secrets of Character",
                     img = "https://images-na.ssl-images-amazon.com/images/I/71pAQQsWJFL.jpg"
+                }
+            );
+
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    id = 1,
+                    user_name = "Mason",
+                    email = "urbanrunes@gmail.com",
+                    password = "$2a$10$AvnYqhBMLzlQlvdAF/SB3u/sRnv12vkUwbJCc/xM0zY.34QPJKlmK"
+                },
+                new User
+                {
+                    id = 2,
+                    user_name = "Loki",
+                    email = "urbanrunes@gmail.com",
+                    password = "$2a$10$9QtT54SirItxnsRlb9q6HeNYKQSqdJ6AGBlmAdkTbZzS/EX1m2dBK"
                 }
             );
         }
