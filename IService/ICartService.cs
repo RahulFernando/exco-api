@@ -8,5 +8,7 @@ namespace exco_api.IService
     {
         Task<Cart> AddToCart(Cart cart);
         Task<Cart> GetCart(int id);
+        Task<Item> UpdateItem(Item item);
+        Task SendMail(int id);
     }
 }

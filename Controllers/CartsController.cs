@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using exco_api.IService;
 using exco_api.Models;
@@ -29,6 +28,14 @@ namespace exco_api.Controllers
         public async Task<IActionResult> GetCart(int id)
         {
             var result = await _cartService.GetCart(id);
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateStatus([FromBody] Item item)
+        {
+            var result = await _cartService.UpdateItem(item);
 
             return Ok(result);
         }
