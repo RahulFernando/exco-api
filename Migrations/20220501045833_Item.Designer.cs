@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using exco_api.Models;
 
 namespace exco_api.Migrations
 {
     [DbContext(typeof(ExcoDbContext))]
-    partial class ExcoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220501045833_Item")]
+    partial class Item
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +43,6 @@ namespace exco_api.Migrations
 
                     b.Property<int?>("Cartid")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("img")
                         .HasColumnType("text");

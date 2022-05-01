@@ -18,7 +18,18 @@ namespace exco_api.ServiceImpl
 
         public async Task<Cart> AddToCart(Cart cart)
         {
-            await _context.Carts.AddAsync(cart);
+            var exist = await _context.Carts.FirstOrDefaultAsync(c => c.userid == cart.userid);
+
+            if (exist != null)
+            {
+                exist.items = cart.items;
+            }
+            else
+            {
+                await _context.Carts.AddAsync(cart);
+
+            }
+
             await _context.SaveChangesAsync();
 
             return cart;
